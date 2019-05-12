@@ -155,7 +155,6 @@ class App extends Component {
         playSound = (
           <PlaySound urlStr= { require('./assets/sounds/s1.mp3') } />    
         );
-    
         nextButton = (
           <div className={classes.column}>
              <img 
@@ -173,7 +172,7 @@ class App extends Component {
       );
     }
     else {
-      playQuestion = ( //Включил <div>, чтобы был рендеринг 
+      playQuestion = (
         <PlaySound urlStr= { this.state.imgList[this.state.rndImages[this.state.questionIndex]].sound} />    
       );
     }
@@ -186,7 +185,6 @@ class App extends Component {
 
     return (
       <div>
-
         {playQuestion}
         {playSound}
         {playGameOver}
@@ -211,7 +209,7 @@ class App extends Component {
              <img className={classes.OrderBtnRepeat}
                onClick={() =>  {this.repeatAnswer()} }
                src= {require('./assets/arrows/speaker1.png')} 
-               alt ="ButtonNext" />
+               alt ="ButtonRepeat" />
               <p><font size="4"> {this.state.countCorrectAnswer} : {this.state.countWrongAnswer} </font></p>
             </div>
         </div>

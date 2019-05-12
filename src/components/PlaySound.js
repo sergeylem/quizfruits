@@ -7,6 +7,7 @@ const playSound = (props) => {
     //         </div>
     return <Sound  //Sound must be in the same string where is RETURN
         url = {props.urlStr}
+        autoLoad = {true}
         playStatus = {Sound.status.PLAYING} />        
 };
 
