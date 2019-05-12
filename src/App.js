@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Buttons.module.css';
 import getFourRndImages from './components/getFourRndImages';
+import PlaySound from './components/PlaySound';
 
 class App extends Component {
   state = {
@@ -141,18 +142,18 @@ class App extends Component {
         nextButton = null; //Прячем кнопку
         if (this.state.playError === true) {
           playSound = (
-            <audio src = { require('./assets/sounds/e1.mp3') } autoPlay />
+            <PlaySound urlStr= { require('./assets/sounds/e1.mp3') } />    
           );
         }      
         else {
           playSound = (
-            <audio src = { require('./assets/sounds/e3.mp3') } autoPlay />
+            <PlaySound urlStr= { require('./assets/sounds/e3.mp3') } />    
           );
         }
       }
       else {
         playSound = (
-          <audio src = { require('./assets/sounds/s1.mp3') } autoPlay />
+          <PlaySound urlStr= { require('./assets/sounds/s1.mp3') } />    
         );
     
         nextButton = (
@@ -167,26 +168,25 @@ class App extends Component {
     }
 
     if (this.state.playQuestion === true) {
-       playQuestion = (
-        <audio src = { this.state.imgList[this.state.rndImages[this.state.questionIndex]].sound} autoPlay />
-    );
+      playQuestion = (
+        <PlaySound urlStr= { this.state.imgList[this.state.rndImages[this.state.questionIndex]].sound} />    
+      );
     }
     else {
       playQuestion = ( //Включил <div>, чтобы был рендеринг 
-        <div>
-          <audio src = { this.state.imgList[this.state.rndImages[this.state.questionIndex]].sound} autoPlay />
-        </div>
+        <PlaySound urlStr= { this.state.imgList[this.state.rndImages[this.state.questionIndex]].sound} />    
       );
     }
 
     if (this.state.gameOver === true) {
       playGameOver = (
-        <audio src = { require('./assets/sounds/s1.wav') } autoPlay />
+        <PlaySound urlStr= { require('./assets/sounds/s1.wav') } />    
       );
     }
 
     return (
       <div>
+
         {playQuestion}
         {playSound}
         {playGameOver}
